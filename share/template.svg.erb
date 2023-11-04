@@ -1,0 +1,13 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" viewBox="0 0 1 1.4">
+  <image x="0" y="0" width="100%" xlink:href="data:image/png;base64,<%= image %>"></image>
+  <% content['texts'].each do |text| %>
+    <text x="0" y="0" font-size="<%= text['size'] * 100 %>%" font-weight="bold" font-family="Serif" writing-mode="tb">
+      <% text['body'].split("\n").each.with_index do |body, i| %>
+        <tspan
+          x="<%= (text['pos']['x'] * 100) - (i * 4.0) %>%"
+          y="<%= (text['pos']['y'] * 100) %>%"
+        ><%= body %></tspan>
+      <% end %>
+    </text>
+  <% end %>
+</svg>
